@@ -17,7 +17,12 @@
       background-color: #f4f4f4;
       color: #f5f4f7;
       padding: 2rem;
-    }
+    
+      min-height: 100vh;   /* ensures body fills viewport */
+      overflow-y: auto;    /* allows vertical scrolling */
+}
+
+    
 
     .container {
       max-width: 600px;
@@ -88,32 +93,92 @@
     .footer span {
       color: red;
     }
+
+    /* Base styles (already good for desktop) */
+
+/* Make inputs and buttons fluid */
+input, textarea, button {
+  width: 100%;
+  font-size: 1rem;
+}
+
+/* Responsive typography */
+h1 {
+  font-size: 2rem;
+}
+
+/* Media Queries */
+
+/* Small devices (phones) */
+@media (max-width: 480px) {
+  body {
+    padding: 1rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  input, textarea {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+}
+
+/* Medium devices (tablets) */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+}
+
+/* Large devices (desktops) */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 700px;
+  }
+}
+
   </style>
 </head>
 <body>
 
   <div class="container">
     <h1>Contact Me</h1>
-    <form action="https://formspree.io/f/mblorzov" method="POST">
+    <form id="contact-form"> 
       <label for="name">Your Name</label>
-      <input type="text" id="name" name="name" placeholder="Enter your name" required />
+     <input type="text" id="name" name="name" required /> 
+     <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" required />
+       <label for="message">Your Message</label>
+       <textarea id="message" name="message" rows="6" required></textarea> 
+      <button type="submit">Send Message</button> 
+      <a href="index.html">
+        <button type="submit">Back to Home page</button> 
+      </a>
+      
+    </form> 
+      </div> 
+      
+      <!-- Load EmailJS SDK FIRST --> <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
-      <label for="email">Your Email</label>
-      <input type="email" id="email" name="email" placeholder="Enter your email" required />
 
-      <label for="message">Your Message</label>
-      <textarea id="message" name="message" rows="6" placeholder="Type your message here..." required></textarea>
-
-      <button type="submit">
-        <a href="index.html" style="text-decoration: none; color:azure">Send Message</a>
-      </button>
-
-      <button style="margin-left: 4rem;">
-      <a href="index.html" style="text-decoration: none; color:azure">← Back to Home</a>
-    </button>
-    </form>
-
-  
+      </script> <!-- Then load your external JS --> <script src="contact.js"></script>
+    
     
   </div>
 
