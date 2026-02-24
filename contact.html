@@ -14,24 +14,57 @@
     }
 
     body {
-      background-color: #f4f4f4;
-      color: #f5f4f7;
-      padding: 2rem;
-    
-      min-height: 100vh;   /* ensures body fills viewport */
-      overflow-y: auto;    /* allows vertical scrolling */
+      
+  background-color: #121212;
+  color: #f5f4f7;
+  padding: 2rem;
+  min-height: 100vh;
+  overflow-y: auto;
+  transition: background 0.3s ease, color 0.3s ease;
+  /* allows vertical scrolling */
 }
 
+body.light {
+  background-color: #f4f4f4;
+  color: #111111;
+}
     
 
-    .container {
-      max-width: 600px;
-      margin: auto;
-      background: rgb(0, 0, 0);
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    }
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: #000000;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+body.light .container {
+  background: #ffffff;
+  color: #111111;
+}
+
+input, textarea {
+  background: #1e1e1e;
+  color: #ffffff;
+}
+
+body.light input,
+body.light textarea {
+  background: #ffffff;
+  color: #111111;
+  border: 1px solid #ccc;
+}
+
+.toggle-btn .theme-btn {
+  position: absolute;
+    top: 2rem;
+    left:40rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: inherit;
+}
 
     h1 {
       text-align: center;
@@ -53,7 +86,7 @@
       resize: vertical;
     }
 
-    button {
+    .container button {
       margin-top: 1.5rem;
       padding: 0.75rem 1.5rem;
       background-color: #f12e6c;
@@ -156,8 +189,11 @@ h1 {
   </style>
 </head>
 <body>
-
+ <div class="toggle-btn">
+  <button id="theme-toggle" class="theme-btn">☀️</button>
+ </div>
   <div class="container">
+    
     <h1>Contact Me</h1>
     <form id="contact-form"> 
       <label for="name">Your Name</label>
@@ -167,17 +203,18 @@ h1 {
        <label for="message">Your Message</label>
        <textarea id="message" name="message" rows="6" required></textarea> 
       <button type="submit">Send Message</button> 
-      <a href="index.html">
-        <button type="submit">Back to Home page</button> 
-      </a>
+      
       
     </form> 
+    <a href="index.html">
+      <button onclick="">Back to Home page</button> 
+    </a>
       </div> 
       
       <!-- Load EmailJS SDK FIRST --> <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
 
-      </script> <!-- Then load your external JS --> <script src="contact.js"></script>
+      <!-- Then load your external JS --> <script src="contact.js"></script>
     
     
   </div>

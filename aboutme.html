@@ -99,10 +99,37 @@
         font-size: 0.95rem;
       }
     }
+
+
+.nav-link.active {
+  color: #f12e6c !important;
+  font-weight: 600;
+}
+
+.nav-link.active::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background: #f12e6c;
+  margin-top: 4px;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  transition: box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
   </style>
 </head>
 <body>
-
+  
   <!-- Video Background -->
   <div class="video-container">
     <video autoplay muted loop playsinline>
@@ -139,6 +166,6 @@
       <a href="index.html" class="home-button">← Back to Home</a>
     </div>
   </div>
-
+<script src="script.js"></script>
 </body>
 </html>

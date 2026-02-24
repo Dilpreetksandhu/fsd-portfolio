@@ -245,3 +245,111 @@
       grid-template-columns: 1fr;
     }
   }
+
+  #typewriter::after {
+    content: "|";
+    margin-left: 5px;
+    animation: blink 1s infinite;
+  }
+  
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  body.light {
+    background-color: #ffffff;
+    color: #111111;
+  }
+
+  .project-card {
+    background: #e3dcdc;
+    color: #151515;
+  }
+  
+  body.light .project-card {
+    background: #fcf3f3;
+    color: #111111;
+  }
+
+  .theme-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: inherit;
+  }
+
+  span{
+    color: #111111;
+  }
+
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(6px);
+  
+    padding: 0.75rem 1.5rem;
+  }
+
+  /* ===== DESKTOP NAVBAR RESET ===== */
+.navbar-nav {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  align-items: center;
+}
+
+#navbar-collapse {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Hide close button on desktop */
+#navbar-close-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  #navbar-collapse {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: none;
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  #navbar-collapse.show {
+    display: flex;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  #navbar-close-btn {
+    display: block;
+    align-self: flex-end;
+  }
+}
